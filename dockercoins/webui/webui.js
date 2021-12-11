@@ -11,16 +11,26 @@ app.get('/', function (req, res) {
     res.redirect('/index.html');
 });
 
+// app.get('/json', function (req, res) {
+//     client.hlen('wallet', function (err, coins) {
+//         client.get('hashes', function (err, hashes) {
+//             var now = Date.now() / 1000;
+//             res.json( {
+//                 coins: coins,
+//                 hashes: hashes,
+//                 now: now
+//             });
+//         });
+//     });
+// });
+
 app.get('/json', function (req, res) {
-    client.hlen('wallet', function (err, coins) {
-        client.get('hashes', function (err, hashes) {
-            var now = Date.now() / 1000;
-            res.json( {
-                coins: coins,
-                hashes: hashes,
-                now: now
-            });
-        });
+    console.log('/json request came at: ',Date.now());
+    var now = Date.now() / 1000;
+    res.json({
+    coins: 10,
+    hashes: 20,
+    now: now
     });
 });
 
